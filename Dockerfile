@@ -13,8 +13,9 @@ RUN apt-get update && apt-get install -y \
 
 # Corregir el aviso del ServerName y configurar el DocumentRoot
 # Ajusta /public si tu index.php está dentro de una carpeta public
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf \
-    && sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf 
+
+#    && sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
 
 # Establecer permisos para que Apache pueda escribir
 RUN chown -R www-data:www-data /var/www/html
