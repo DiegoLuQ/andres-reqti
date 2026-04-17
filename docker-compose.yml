@@ -2,18 +2,19 @@ version: '3.8'
 
 services:
   web:
-    build:
+    build: 
       context: .
       dockerfile: Dockerfile
     container_name: reqti_app
+    restart: always
     volumes:
       - .:/var/www/html
     environment:
+      # Variables para tu Proxy Inverso
       - VIRTUAL_HOST=reqti.dpmc.cl
       - LETSENCRYPT_HOST=reqti.dpmc.cl
     networks:
       - red_produccion
-    restart: always
 
 networks:
   red_produccion:
